@@ -18,18 +18,36 @@ def scrape_info():
     html = browser.html
     soup = bs(html, "html.parser")
 
-    # Get the average temps
-    #titleline = soup.find('div', id='content_title')
-    #title1 = titleline.text
+    # Get the headline title and teaser
     title1 = soup.find("div", class_="content_title").get_text()
-    #title1 = titleline.find.text
-    #title2 = soup.find_all('div', id='content title')[2].text
-    #title3 = soup.find_all('div', id='content title')[3].text
-    #title4 = soup.find_all('div', id='content title')[4].text
+    articletease1 = soup.find("div", class_="article_teaser_body").get_text()
+
+    # Close the browser after scraping
+    browser.quit()
+
+    # Set up Splinter
+    executable_path = {'executable_path': ChromeDriverManager().install()}
+    browser = Browser('chrome', **executable_path, headless=False)
+
+    # Visit next page - JPL Mars Space Images - Featured Image
+    url = "https://spaceimages-mars.com/"
+    browser.visit(url)
+
+    time.sleep(1)
+
+    # Scrape page into Soup
+    html = browser.html
+    soup = bs(html, "html.parser")
+
+    # Find the featured image
+    relative_image_path = soup.find("img", class_="headerimage fade-in")["src"]
+    mars_img1 = url + relative_image_path
  
-    # Store data in a dictionary
+    # Store all scraped data in a dictionary
     title_data = {
-        "title_1": title1
+         "title_1": title1,
+         "tease_1": articletease1,
+         "image_1": mars_img1
     #    "title_2": title2,
     #    "title_3": title3,
     #    "title_4": title4

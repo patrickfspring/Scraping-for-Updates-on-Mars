@@ -12,13 +12,16 @@
 <body>
   <div class="container-fluid">
     <div class="jumbotron text-center">
-      <h1>Visit the...</h1>
-      <p>Big Red Planet.</p>
-      <p><a class="btn btn-primary btn-lg" href="/scrape" role="button">Get Data!</a></p>
+      <h1>Mission to Mars</h1>
+      <p><a class="btn btn-primary btn-lg" href="/scrape" role="button">Scrape New Data</a></p>
     </div>
-    <p>TBD</p>
-    <h2>The typical non-Minnesotan weather in Costa Rica is:</h2>
-    <h3>Max Temp: {{ headlines.title1 }}</h3>
+    <h2>Latest Mars News</h2>
+    {% for item in headlines%}
+      <h3>{{ item.title_1 }}</h3>
+       <p>{{ item.tease_1 }}</p>
+    <h2>Featured Mars Image</h2>
+    <img src="{{ item.image_1 }}" width=50%, height=50%, alt="Mars">
+    {% endfor %}
   </div>
   </div>
 </body>
