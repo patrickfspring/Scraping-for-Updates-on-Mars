@@ -7,6 +7,46 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Latest Headlines from Mars</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    #master-container {margin:5px;
+                      padding:5px;
+                      display:flex
+    }
+    #left-container {float:left;
+                     padding:5px;
+                     margin:5px
+    }
+    #right-container {float:right;
+                      padding:5px;
+                      margin:5px
+    }
+  </style>
+  <style>
+    #hemisphere-container {margin:5px;
+                      padding:5px;
+                      display:flex;
+                      justify-content:center
+    }
+    #left-container1 {float:center;
+                      padding:5px;
+                      margin:5px
+    }
+    #left-container2 {float:center;
+                      padding:5px;
+                      margin:5px
+    }
+    #left-container3 {float:center;
+                      padding:5px;
+                      margin:5px
+    }
+    #left-container4 {display:left;
+                      padding:5px;
+                      margin:5px
+    }
+  </style>
+
 </head>
 
 <body>
@@ -19,10 +59,92 @@
     {% for item in headlines%}
       <h3>{{ item.title_1 }}</h3>
        <p>{{ item.tease_1 }}</p>
-    <h2>Featured Mars Image</h2>
-    <img src="{{ item.image_1 }}" width=50%, height=50%, alt="Mars">
     {% endfor %}
-  </div>
+    <div id = 'master-container'>
+      <div id = 'left-container'>
+        {% for item in headlines%}
+          <h2>Featured Mars Image</h2>
+          <img src="{{ item.image_1 }}" width=90%, height=90%, alt="Mars">
+        {% endfor %}
+      </div>
+      <div id = 'right-container'>
+        <h4>Mars Facts</h4>
+        <div class="table-responsive-md">
+          <table class="table table-striped">
+            <thead>
+              <tr style="text-align: right;">
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td></td>
+                <td>Mars</td>
+                <td>Earth</td>
+              </tr>
+              <tr>
+                <td>Diameter:</td>
+                <td>6,779 km</td>
+                <td>12,742 km</td>
+              </tr>
+              <tr>
+                <td>Mass:</td>
+                <td>6.39 x 10^23 kg</td>
+                <td>5.97 x 10^24 kg</td>
+              </tr>
+              <tr>
+                <td>Moons:</td>
+                <td>2</td>
+                <td>1</td>
+              </tr>
+              <tr>
+                <td>Distance from Sun:</td>
+                <td>227,943,824 km</td>
+                <td>149,598,262 km</td>
+              </tr>
+              <tr>
+                <td>Length of Year:</td>
+                <td>687 Earth days</td>
+                <td>365.24 days</td>
+              </tr>
+              <tr>
+                <td>Temperature:</td>
+                <td>-87 to -5°C</td>
+                <td>-88 to 58°C</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <br>
+    <br>
+    <h2 style="text-align:center;">Mars Hemispheres</h2>
+    <div id = 'master-container'>
+      <div id = 'left-container1'>
+        {% for item in headlines%}
+        <img src="{{ item.img_url1 }}" width=200, height=200, alt="Mars1">
+        <h4>{{ item.title1 }}</h4>
+        {% endfor %}
+      </div>
+      <div id = 'left-container2'>
+        {% for item in headlines%}
+        <img src="{{ item.img_url2 }}" width=200, height=200, alt="Mars2">
+        <h4>{{ item.title2 }}</h4>
+        {% endfor %}
+      </div>
+      <div id = 'left-container3'>
+        {% for item in headlines%}
+        <img src="{{ item.img_url3 }}" width=200, height=200, alt="Mars3">
+        <h4>{{ item.title3 }}</h4>
+        {% endfor %}
+      </div>
+      <div id = 'left-container4'>
+        {% for item in headlines%}
+        <img src="{{ item.img_url4 }}" width=200, height=200, alt="Mars4">
+        <h4 style="text-align:left;">{{ item.title4 }}</h4>
+        {% endfor %} 
+      </div>
+    </div>   
   </div>
 </body>
 
