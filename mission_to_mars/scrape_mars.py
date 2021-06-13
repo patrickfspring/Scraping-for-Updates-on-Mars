@@ -46,7 +46,7 @@ def scrape_info():
     # Close the browser after scraping
     browser.quit()
  
-   # Set up Splinter
+    # Set up Splinter
     executable_path = {'executable_path': ChromeDriverManager().install()}
     browser = Browser('chrome', **executable_path, headless=False)
 
@@ -72,7 +72,7 @@ def scrape_info():
     # Close the browser after scraping
     browser.quit()
 
-# Set up Splinter
+    # Set up Splinter
     executable_path = {'executable_path': ChromeDriverManager().install()}
     browser = Browser('chrome', **executable_path, headless=False)
 

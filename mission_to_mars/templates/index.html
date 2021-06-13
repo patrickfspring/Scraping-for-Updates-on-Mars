@@ -6,11 +6,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Latest Headlines from Mars</title>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="mission_to_mars\templates\style.css">
 
   <style>
-    #master-container {margin:5px;
+    #firstrow-container {margin:5px;
                       padding:5px;
                       display:flex
     }
@@ -60,7 +60,7 @@
       <h3>{{ item.title_1 }}</h3>
        <p>{{ item.tease_1 }}</p>
     {% endfor %}
-    <div id = 'master-container'>
+    <div id = 'firstrow-container'>
       <div id = 'left-container'>
         {% for item in headlines%}
           <h2>Featured Mars Image</h2>
@@ -70,7 +70,7 @@
       <div id = 'right-container'>
         <h4>Mars Facts</h4>
         <div class="table-responsive-md">
-          <table class="table table-striped">
+          <table class="table table-striped table-bordered">
             <thead>
               <tr style="text-align: right;">
               </tr>
@@ -119,7 +119,7 @@
     <br>
     <br>
     <h2 style="text-align:center;">Mars Hemispheres</h2>
-    <div id = 'master-container'>
+    <div id = 'hemisphere-container'>
       <div id = 'left-container1'>
         {% for item in headlines%}
         <img src="{{ item.img_url1 }}" width=200, height=200, alt="Mars1">
