@@ -1,3 +1,4 @@
+import pandas as pd
 from splinter import Browser
 from bs4 import BeautifulSoup as bs
 import time
@@ -46,6 +47,12 @@ def scrape_info():
     # Close the browser after scraping
     browser.quit()
  
+    # Study data files
+    mars_data = pd.read_html('https://galaxyfacts-mars.com')
+    df0 = mars_data[0]
+    mars_str = ""
+    mars_str = df0.to_html(index=False, header=False)
+
     # Set up Splinter
     executable_path = {'executable_path': ChromeDriverManager().install()}
     browser = Browser('chrome', **executable_path, headless=False)
@@ -152,6 +159,7 @@ def scrape_info():
          "title_1": title1,
          "tease_1": articletease1,
          "image_1": mars_img1,
+         "mars_string": mars_str,
          "title1": htitle1,
          "img_url1": himg_url1,
          "title2": htitle2,

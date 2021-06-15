@@ -8,14 +8,17 @@
   <title>Latest Headlines from Mars</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <style type="text/css" media="screen">
-    table.table-bordered{
+    .dataframe{
       border:1px solid black;
       margin-top:10px;
     }
-    table.table-bordered > thead > tr > th{
+    .dataframe tr:nth-child(odd) {
+    background: rgb(201, 200, 200);
+    }
+    .dataframe > thead > tr > th{
     border:1px solid black;
     }
-    table.table-bordered > tbody > tr > td{
+    .dataframe > tbody > tr > td{
     border:1px solid black;
     }
   </style>
@@ -79,49 +82,11 @@
       <div id = 'right-container'>
         <h4>Mars Facts</h4>
         <div class="table-responsive-md">
-          <table class="table table-striped table-bordered">
-            <thead>
-              <tr style="text-align: right;">
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td></td>
-                <td>Mars</td>
-                <td>Earth</td>
-              </tr>
-              <tr>
-                <td>Diameter:</td>
-                <td>6,779 km</td>
-                <td>12,742 km</td>
-              </tr>
-              <tr>
-                <td>Mass:</td>
-                <td>6.39 x 10^23 kg</td>
-                <td>5.97 x 10^24 kg</td>
-              </tr>
-              <tr>
-                <td>Moons:</td>
-                <td>2</td>
-                <td>1</td>
-              </tr>
-              <tr>
-                <td>Distance from Sun:</td>
-                <td>227,943,824 km</td>
-                <td>149,598,262 km</td>
-              </tr>
-              <tr>
-                <td>Length of Year:</td>
-                <td>687 Earth days</td>
-                <td>365.24 days</td>
-              </tr>
-              <tr>
-                <td>Temperature:</td>
-                <td>-87 to -5°C</td>
-                <td>-88 to 58°C</td>
-              </tr>
-            </tbody>
-          </table>
+          {% for item in headlines%}
+            <table class="table table-bordered">
+            {{item.mars_string | safe}}
+            </table>
+          {% endfor %}          
         </div>
       </div>
     </div>
