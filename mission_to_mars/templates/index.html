@@ -7,8 +7,18 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Latest Headlines from Mars</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  <link rel="stylesheet" type="text/css" href="mission_to_mars\templates\style.css">
-
+  <style type="text/css" media="screen">
+    table.table-bordered{
+      border:1px solid black;
+      margin-top:10px;
+    }
+    table.table-bordered > thead > tr > th{
+    border:1px solid black;
+    }
+    table.table-bordered > tbody > tr > td{
+    border:1px solid black;
+    }
+  </style>
   <style>
     #firstrow-container {margin:5px;
                       padding:5px;
@@ -46,7 +56,6 @@
                       margin:5px
     }
   </style>
-
 </head>
 
 <body>
@@ -141,7 +150,7 @@
       <div id = 'left-container4'>
         {% for item in headlines%}
         <img src="{{ item.img_url4 }}" width=200, height=200, alt="Mars4">
-        <h4 style="text-align:left;">{{ item.title4 }}</h4>
+        <h4>{{ item.title4 }}</h4>
         {% endfor %} 
       </div>
     </div>   

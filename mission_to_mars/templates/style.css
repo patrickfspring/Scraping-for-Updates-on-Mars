@@ -1,10 +1,11 @@
-h2 {
-  font-weight: 400;
-  color: blue
+<link rel="stylesheet" type="text/css" href="style.css" media="screen">
+table.table-bordered{
+  border:1px solid black;
+  margin-top:10px;
 }
-h3 {
-  font-weight: 400
+table.table-bordered > thead > tr > th{
+border:1px solid black;
 }
-h4 {
-  font-weight: 400
+table.table-bordered > tbody > tr > td{
+border:1px solid black;
 }
